@@ -1,34 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+
+
+
 
 public class IntoThePortal : MonoBehaviour
 {
     public GameObject terrain;
+    public Renderer rendTerrain;
     private void Start()
     {
-       
+        print(terrain.layer);
     }
+
+
     private void OnTriggerStay(Collider other)
     {
-        if(other.name !="Main Camera")
+        if (other.CompareTag("MainCamera") && other.transform.position.z > this.gameObject.transform.position.z)
         {
-            return;
-        }
-        if(transform.position.z > other.transform.position.z)
-        {
-            print("Outside");
-
-            terrain.layer = 7;
-            
-        }
-        else
-        {
-            print("Inside Portal");
-
             terrain.layer = 1;
+            print(terrain.layer);
         }
+
+        if(other.CompareTag("MainCamera") && other.transform.position.z < this.gameObject.transform.position.z)
+        {
+            terrain.layer = 7;
+            print(terrain.layer);
+        }
+
+       
 
 
     }

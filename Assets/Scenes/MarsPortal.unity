@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -345,6 +345,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &339022941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1321171690623930601, guid: 6430f725257354fb7a97a81981eec669,
+    type: 3}
+  m_PrefabInstance: {fileID: 1417738420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &388525029
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +645,7 @@ PrefabInstance:
         type: 3}
       propertyPath: terrain
       value: 
-      objectReference: {fileID: 252845828}
+      objectReference: {fileID: 339022941}
     - target: {fileID: 7874251226559831372, guid: 4cf30f39e27e54600b1161a508cd2810,
         type: 3}
       propertyPath: m_RootOrder
