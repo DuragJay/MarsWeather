@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8e2223ec77358cf47845e1e92be76a72, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.6942164, g: 0.49511498, b: 0.29758438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1934407498}
 --- !u!4 &388525031
 Transform:
   m_ObjectHideFlags: 0
@@ -463,6 +463,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 388525031}
     m_Modifications:
+    - target: {fileID: 7615365117606142433, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615365117606142434, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615365117606142434, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_CustomMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e2223ec77358cf47845e1e92be76a72, type: 2}
+    - target: {fileID: 7615365117606142434, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_UseCustomMaterial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615365117606142435, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7615365117606142438, guid: f814236e8f55445f7877885f3b5daa3c,
+        type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7615365117606142439, guid: f814236e8f55445f7877885f3b5daa3c,
         type: 3}
       propertyPath: m_RootOrder
@@ -640,7 +670,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c86eae7ed36c844a3aee1636c4b5003b, type: 2}
+      objectReference: {fileID: 2100000, guid: 1ca006b2542fb124a89e370691b81447, type: 2}
     - target: {fileID: 7874251226175913862, guid: 4cf30f39e27e54600b1161a508cd2810,
         type: 3}
       propertyPath: terrain
@@ -706,7 +736,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7874251226175913862, guid: 4cf30f39e27e54600b1161a508cd2810, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cf30f39e27e54600b1161a508cd2810, type: 3}
 --- !u!4 &1061978300 stripped
 Transform:
@@ -714,6 +745,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1061978299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1061978301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7874251226175913859, guid: 4cf30f39e27e54600b1161a508cd2810,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061978299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061978302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061978301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4ef0a087d9c48b1b6267fac53afb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 339022941}
+  mySkyBox: {fileID: 2100000, guid: abe60dfe918582a4885ff3a115afdf00, type: 2}
 --- !u!1001 &1417738420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,6 +844,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1321171690623930602, guid: 6430f725257354fb7a97a81981eec669,
     type: 3}
   m_PrefabInstance: {fileID: 1417738420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1934407498 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7615365117606142435, guid: f814236e8f55445f7877885f3b5daa3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 534752997}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133435706
 GameObject:

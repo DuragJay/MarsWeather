@@ -8,10 +8,11 @@ using UnityEngine;
 public class IntoThePortal : MonoBehaviour
 {
     public GameObject terrain;
-    public Renderer rendTerrain;
+    public Material mySkyBox;
     private void Start()
     {
         print(terrain.layer);
+        RenderSettings.skybox = mySkyBox;
     }
 
 
@@ -21,6 +22,8 @@ public class IntoThePortal : MonoBehaviour
         {
             terrain.layer = 1;
             print(terrain.layer);
+
+            RenderSettings.skybox = mySkyBox;
         }
 
         if(other.CompareTag("MainCamera") && other.transform.position.z < this.gameObject.transform.position.z)
