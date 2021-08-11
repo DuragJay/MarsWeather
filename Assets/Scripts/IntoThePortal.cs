@@ -12,6 +12,9 @@ public class IntoThePortal : MonoBehaviour
         {
             mat.SetInt("_StencilTest", (int)CompareFunction.Equal);
         }
+        Weather w = MarsWeather.getMarsWeather();
+
+        print(w.temp);
 
     }
 

@@ -17,7 +17,9 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         setMat(false);
-       
+        Weather w = MarsWeather.getMarsWeather();
+
+        print(w.temp);
     }
 
     void setMat(bool fullRender)
