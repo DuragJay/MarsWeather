@@ -6,16 +6,17 @@ public class IntoThePortal : MonoBehaviour
 {
     public GameObject terrain;
     public Material[] materials;
+    public GameObject uiCircle;
     private void Start()
     {
         foreach (var mat in materials)
         {
             mat.SetInt("_StencilTest", (int)CompareFunction.Equal);
         }
-        Weather w = MarsWeather.getMarsWeather();
+      
 
-        print(w.temp);
-
+       
+        uiCircle.SetActive(false);
     }
 
 
@@ -29,6 +30,7 @@ public class IntoThePortal : MonoBehaviour
             {
                 mat.SetInt("_StencilTest", (int)CompareFunction.NotEqual);
             }
+            uiCircle.SetActive(true);
         }
 
         if (other.CompareTag("MainCamera") && other.transform.position.z < this.gameObject.transform.position.z)
@@ -39,6 +41,7 @@ public class IntoThePortal : MonoBehaviour
             {
                 mat.SetInt("_StencilTest", (int)CompareFunction.Equal);
             }
+           
         }
 
     }

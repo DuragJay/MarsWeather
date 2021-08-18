@@ -2,24 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-
-
-
+using System.Net;
+using System.IO;
+using UnityEngine.Networking;
 
 public class Portal : MonoBehaviour
 {
     public GameObject terrain;
     public Material[] materials;
     public Transform transDevice;
+    public GameObject uiCircle;
 
-    private bool wasInFront;
-    bool insidePortal;
+    public MarsWeather m;
+   
+
+    bool wasInFront;
+    bool inOtherWorld;
     private void Start()
     {
         setMat(false);
-        Weather w = MarsWeather.getMarsWeather();
+        uiCircle.SetActive(false);
+        terrain.layer = 7;
 
-        print(w.temp);
+
     }
 
     void setMat(bool fullRender)
@@ -33,42 +38,42 @@ public class Portal : MonoBehaviour
     private bool getIsInFront()
     {
         Vector3 pos = transform.InverseTransformPoint(transDevice.position);
-        return pos.z >= 0 ? true : false;
+        Vector3 myPos = transform.InverseTransformPoint(this.gameObject.transform.position);
+        return pos.z >= myPos.z ? true : false;
             
     }
     private void OnTriggerEnter(Collider other)
     {
        
+       if(other.transform != transDevice)
+        {
+            return;
+        }
         wasInFront = getIsInFront();
     }
     private void OnTriggerStay(Collider other)
     {
-       
-        if(!other.CompareTag ("MainCamera"))
+        bool isInFront = getIsInFront();
+        if((isInFront && !wasInFront) || (wasInFront && !isInFront))
         {
-            return;
-        }
-      
-        bool IsInFront = getIsInFront();
-
-        if(IsInFront && !wasInFront || wasInFront && !IsInFront)
-        {
-            insidePortal = !insidePortal;
-            terrain.layer = 7;
-            setMat(insidePortal);
-        }
-        if (other.CompareTag("MainCamera") && other.transform.position.z > this.gameObject.transform.position.z)
-        {
-            terrain.layer = 1;
-            print(terrain.layer);
-            foreach (var mat in materials)
+            inOtherWorld = !inOtherWorld;
+            if(inOtherWorld == false)
             {
-                mat.SetInt("_StencilTest", (int)CompareFunction.NotEqual);
+                terrain.layer = 7;
+                uiCircle.SetActive(false);
             }
+            else
+            {
+                terrain.layer = 1;
+                uiCircle.SetActive(true);
+            }
+            setMat(inOtherWorld);
+            
         }
-
-        wasInFront = IsInFront;
+        wasInFront = isInFront;
     }
+   
+
     void onDestroy()
     {
         setMat(true);
