@@ -3,9 +3,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Weather
 {
-    public string terrestrial_date;
-
-   
     public List<soleList> soles;
 
 }
@@ -25,5 +22,14 @@ public class soleList
     public string max_temp;
 
     public string pressure;
+
+    public string pressure_string;
+
+    public string atmo_opacity;
+
+    public string sunrise;
+
+    public string sunset;
 }
+
 
