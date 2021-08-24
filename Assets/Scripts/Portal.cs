@@ -14,8 +14,9 @@ public class Portal : MonoBehaviour
     public GameObject uiCircle;
 
     public MarsWeather m;
-   
 
+    private bool isInside = false;
+    private bool isOutside = false;
     bool wasInFront;
     bool inOtherWorld;
     private void Start()
@@ -37,7 +38,8 @@ public class Portal : MonoBehaviour
     }
     private bool getIsInFront()
     {
-        Vector3 pos = transform.InverseTransformPoint(transDevice.position);
+        Vector3 playerPost = Camera.main.transform.position + Camera.main.transform.forward * (Camera.main.nearClipPlane * 4);
+        Vector3 pos = transform.InverseTransformPoint(playerPost);
         Vector3 myPos = transform.InverseTransformPoint(this.gameObject.transform.position);
         return pos.z >= myPos.z ? true : false;
             
@@ -53,6 +55,29 @@ public class Portal : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        Vector3 playerPost = Camera.main.transform.position + Camera.main.transform.forward * (Camera.main.nearClipPlane * 4);
+
+      /*  if (transform.InverseTransformPoint(playerPost).z <= 0) ;
+        {
+            if(isOutside)
+            {
+                isOutside = false;
+                isInside = true;
+                terrain.layer = 1;
+                uiCircle.SetActive(true);
+                setMat(True);
+            }
+            else
+            {
+                isOutside = true;
+                isInside = false;
+                terrain.layer = 7;
+                uiCircle.SetActive(false);
+                setMat(False);
+            }
+        }*/
+
+
         bool isInFront = getIsInFront();
         if((isInFront && !wasInFront) || (wasInFront && !isInFront))
         {
@@ -71,6 +96,7 @@ public class Portal : MonoBehaviour
             
         }
         wasInFront = isInFront;
+        
     }
    
 
