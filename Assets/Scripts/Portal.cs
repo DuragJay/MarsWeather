@@ -13,8 +13,6 @@ public class Portal : MonoBehaviour
     public Transform transDevice;
     public GameObject uiCircle;
 
-    public MarsWeather m;
-
     private bool isInside = false;
     private bool isOutside = false;
     bool wasInFront;
